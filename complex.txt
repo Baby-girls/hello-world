@@ -1,0 +1,51 @@
+
+public class complexnumber {
+	protected double real;
+	protected double image;
+	 
+	complexnumber(){
+		this.real=0;
+		this.image=0;
+	}
+	complexnumber(double real,double image){
+		this.real=real;
+		this.image=image;
+	}
+	public double getReal() {
+		return real;
+	}
+	public void setReal(double real) {
+		this.real=real;
+	}
+	public double getImage() {
+		return image;
+	}
+	public void setImage(double image) {
+		this.image=image;
+	}
+	
+	public complexnumber Add(complexnumber a) {    //加法
+		this.real=this.real+a.real;
+		this.image=this.image+a.image;
+		return this;
+	}
+	public complexnumber Sub(complexnumber a) {    //减法
+		this.real=this.real-a.real;
+		this.image=this.image-a.image;
+		return this;
+	}
+	public complexnumber Mul(complexnumber a) {    //乘法
+		this.real=this.real*a.real-this.image*a.image;
+		this.image=this.image*a.image+((this.real+(this.image*a.image))/a.real)*a.image;
+		return this;
+	}
+	public complexnumber Div(complexnumber a) {
+		if(a.image==0) {
+			System.err.println("除数不能为0!");
+		}
+		this.real=(this.real*a.real+this.image*a.image)/(a.real*a.real+a.image*a.image);
+		this.image=(this.image*a.image-(((this.real*(a.real*a.real+a.image*a.image-(this.image*a.image))/a.real))*a.image)/a.real*a.real+a.image*a.image);
+		return this;
+	}
+}
+	
