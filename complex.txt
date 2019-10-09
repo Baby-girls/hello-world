@@ -1,5 +1,5 @@
 
-public class complexnumber {
+public class complexnumber {//复数
 	protected double real;
 	protected double image;
 	 
@@ -39,7 +39,7 @@ public class complexnumber {
 		this.image=this.image*a.image+((this.real+(this.image*a.image))/a.real)*a.image;
 		return this;
 	}
-	public complexnumber Div(complexnumber a) {
+	public complexnumber Div(complexnumber a) {//除法
 		if(a.image==0) {
 			System.err.println("除数不能为0!");
 		}
